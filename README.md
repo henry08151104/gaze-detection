@@ -1,4 +1,4 @@
-# Gaze Detection System
+# 👁️ Gaze Detection System
 
 這個專案是我碩士論文延伸出來的作品，用來偵測使用者的視線，並預測使用者在螢幕上的注視區域（四象限 / 不同區塊），並透過網頁介面呈現結果。
 
@@ -6,9 +6,32 @@
 
 ## 🔍 專案簡介 (Overview)
 
-- 使用 Python 與 Flask 建立一個可以在 **localhost** 執行的視線偵測系統。
-- 前端使用 HTML / JavaScript / CSS（放在 `templates/` 和 `static/` 資料夾）。
-- 後端負責處理影像 / 特徵 / 模型推論，並回傳結果顯示在網頁上。
+- 使用 Python + Flask 建立可於 **localhost** 執行的視線偵測系統
+- 前端以 HTML / JavaScript / CSS 建構互動式介面
+- 後端負責特徵擷取、模型推論與結果呈現
+- 主要應用場景：
+  - 使用者介面行為分析
+  - 電子廣告注視偵測
+
+---
+
+## ⚠️ 系統限制與模型準確度說明 (Limitations)
+
+本專案為研究性質原型（Prototype），目前模型準確度並不高。  
+造成準確率不足的原因包含：
+
+- 訓練資料量有限
+- 受試者數較少，尚未達成 **cross-user generalization**（模型對未見過的使用者準確率較低）
+- 模型架構較基本（使用簡化版 CNN / DNN）
+- 環境光線、攝影角度、使用者姿勢變化等皆會影響預測結果
+
+> 📌 本系統主要展示完整的  
+> **「資料前處理 → 深度學習模型 → Flask 後端 → 前端介面」**  
+> 之端到端流程，並非提供商用等級的視線偵測精度。
+
+未來可透過擴增資料集、採用更強的 landmark-based gaze estimation、或引入進階模型來改善準確度。
+
+---
 
 ## ✨ 功能特色 (Features)
 
@@ -17,14 +40,18 @@
 - 在網頁前端即時顯示預測結果（例如：使用者注視的區塊）。
 - 系統設計可配合研究情境（例如：廣告注視、介面使用行為分析等）。
 
+---
+
 ## 🛠 技術棧 (Tech Stack)
 
 - **Backend**：Python, Flask
 - **Frontend**：HTML, CSS, JavaScript
 - **Machine Learning / Deep Learning**：
-  - CNN model
-  - DNN model
+  - **CNN model**
+  - **DNN model**
   - （詳見下方 📥 Model Download）
+
+---
 
 ## 📥 Model Download
 
@@ -59,8 +86,11 @@ gaze-detection/
 │  └─ CNN_model.pth/   # CNN model權重檔
 │  └─ DNN_model.pth    # DNN model權重檔
 ├─ scaler1.pkl         # 前處理用的 scaler
+├─ requirements.txt    # 必要套件列表
 └─ .gitignore          # 忽略較大的模型權重檔
 ```
+
+---
 
 ## 🚀 如何在本機執行 (Run on Localhost)
 
@@ -91,6 +121,8 @@ python app.py
 http://localhost:5000
 即可開啟系統界面。
 
+---
+
 ## 📚 主要依賴套件 (Key Dependencies)
 
 ```text
@@ -103,10 +135,14 @@ torch==2.5.1+cu121
 torchvision==0.20.1+cu121
 ```
 
+---
+
 ## 🔮 未來規劃 (Future Work)
 
 - 使預測更加精準
 - 新增更美觀的前端視覺化
+
+---
 
 ## 👤 Author
 
