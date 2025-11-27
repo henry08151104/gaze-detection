@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>DNN</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .output_video {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <video
+      class="input_video"
+      width="1920px"
+      height="1080px"
+      style="display: none"
+    ></video>
+    <canvas
+      class="output_video"
+      width="1920px"
+      height="1080px"
+      style="display: block"
+    ></canvas>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='src/gazeDNN.js') }}"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Numerical</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hor_line {
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        background-color: black;
+        top: 50%;
+        margin-top: -0.5px;
+        border: none;
+      }
+
+      .output_video1 {
+        width: 100%;
+        height: 100%;
+      }
+
+      #startbutton {
+        padding: 10px 20px;
+        font-size: 16px;
+        position: absolute;
+      }
+
+      .position-point {
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .position-point-text {
+        position: absolute;
+        bottom: 100%;
+        left: 25%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-weight: bold;
+      }
+
+      .center {
+        left: 50%;
+        top: 50%;
+      }
+
+      .top_center {
+        left: 50%;
+        top: 25%;
+      }
+
+      .bottom_center {
+        left: 50%;
+        top: 75%;
+        transform: translateY(50%);
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .blinking {
+        animation: blink 1s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="loading_bar" action="/test.aspx" method="post">
+      <progress></progress>
+    </form>
+    <button id="startbutton" style="display: none">start locate</button>
+    <div class="position-point center" style="display: none">
+      <div class="position-point-text">Please look at center point</div>
+    </div>
+    <div class="position-point top_center" style="display: none">
+      <div class="position-point-text">Pleace look at top point</div>
+    </div>
+    <div class="position-point bottom_center" style="display: none">
+      <div class="position-point-text">Pleace look at bottom point</div>
+    </div>
+    <div class="hor_line" style="display: none"></div>
+    <video
+      class="input_video1"
+      width="1920px"
+      height="1080px"
+      style="display: none"
+    ></video>
+    <canvas
+      class="output_video1"
+      width="1920px"
+      height="1080px"
+      style="display: none"
+    ></canvas>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='src/gaze.js') }}"
+    ></script>
+  </body>
+</html>
