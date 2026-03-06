@@ -59,7 +59,7 @@
 請從以下連結下載模型檔：
 
 🔗 **Models Download:**
-[Download models from Google Drive](https://drive.google.com/drive/u/1/folders/1h-OyzlQoauPCJ61OClmGdkmBoeBjqgjl)
+[Download models from Google Drive](https://drive.google.com/drive/u/1/folders/1PujurUdfFXj5_lN19wBwDt-MAltO8ho2)
 
 下載後請將對應的模型檔放置到專案目錄中，例如：
 
